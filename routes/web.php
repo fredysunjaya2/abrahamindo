@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserGameController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-game', [UserGameController::class, 'index'])->name('my-game');
     Route::get('/friends', [FriendController::class, 'index'])->name('friends');
     Route::get('/community', [FriendController::class, 'community'])->name('community');
+    Route::get('/message/{id}', [MessageController::class, 'index'])->name('message');
+    Route::post('/send-message', [MessageController::class, 'sendMessage'])->name('send-message');
 
     Route::post('/add-friend', [FriendController::class, 'addFriend'])->name('add-friend');
     Route::post('/remove-friend', [FriendController::class, 'removeFriend'])->name('remove-friend');

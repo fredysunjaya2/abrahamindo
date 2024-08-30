@@ -25,7 +25,7 @@
                         <input type="hidden" value="{{ $item->friend_id }}" name="friend_id">
                         <button type="submit" class="btn btn-secondary">Remove Friend</button>
                     </form>
-                    <a href="" class="btn btn-primary">Message</a>
+                    <a href="{{ route('message', $item->friend_id) }}" class="btn btn-primary">Message</a>
                 </div>
                 @elseif ($item->status == 'pending' && $item->user_id == Auth::user()->id)
                 <h6 class="card-text">Your Friend Request is in Pending</h6>
