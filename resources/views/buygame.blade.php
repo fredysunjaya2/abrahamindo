@@ -47,9 +47,15 @@
                 @endif
             </div>
             <div class="modal-footer">
-                <form action="{{ route('game-details', $userGame->game->id) }}">
-                    <button type="submit" class="btn btn-primary modal-btn-close">Understood</button>
-                </form>
+                @csrf
+                <label for="friend">Friend: </label>
+                <select id="friend" name="friend">
+                    @foreach($friends as $item)
+                    <option value="{{ $item->friend->id }}">{{ $item->friend->name }}</option>
+                    @endforeach
+                </select>
+                <input type="hidden" name="game_id" value="{{ $game->id }}"></input>
+                <button class="btn btn-secondary" type="submit">Buy For Friends</button>
             </div>
         </div>
     </div>

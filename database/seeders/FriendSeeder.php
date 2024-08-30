@@ -14,6 +14,11 @@ class FriendSeeder extends Seeder
     public function run(): void
     {
         //
-        Friend::factory(10)->create();
+        for($i = 0; $i < 10; $i++) {
+            Friend::factory()->create([
+                'user_id' => 6,
+                'friend_id' => rand(1, 10),
+            ]);
+        }
     }
 }

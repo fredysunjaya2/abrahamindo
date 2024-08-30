@@ -18,7 +18,10 @@
                     <a class="nav-link" href="{{ route('my-game') }}">My Game</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Friends</a>
+                    <a class="nav-link" href="{{ route('friends') }}">Friends</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('community') }}">Community</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Profile</a>
@@ -39,11 +42,11 @@
         @else
         <div class="ms-auto d-flex flex-row me-5 gap-3">
             <p class="fs-5 text-danger mb-0">Coin: {{ Auth::user()->coin }}</p>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="btn btn-primary">Logout</button>
+            </form>
         </div>
         @endif
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
     </div>
 </nav>
