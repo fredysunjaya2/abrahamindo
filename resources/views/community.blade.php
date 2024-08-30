@@ -14,7 +14,7 @@
     @foreach ($friends as $item)
     <div class="col">
         <div class="card h-100">
-            <img src="{{ asset('assets/profile_pic/' . $item->profile_pic) }}" class="card-img-top" alt="...">
+            <img src="{{ asset($item->profile_pic) }}" class="card-img-top" alt="...">
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">{{ $item->name }}</h5>
             </div>

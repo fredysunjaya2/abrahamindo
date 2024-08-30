@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory(10)->create([
-            'profile_pic' => rand(1, 19) . ".png"
+            'profile_pic' => "assets/profile_pic/" . rand(1, 19) . ".png"
         ]);
 
         $this->call([

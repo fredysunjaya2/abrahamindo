@@ -27,7 +27,7 @@
                     <a class="nav-link @yield('activeTopup')" href="{{ route('topup-page') }}">Top Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @yield('activeProfile')" href="#">Profile</a>
+                    <a class="nav-link @yield('activeProfile')" href="{{ route('profile') }}">Profile</a>
                 </li>
             </ul>
         </div>

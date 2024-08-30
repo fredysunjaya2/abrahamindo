@@ -15,9 +15,9 @@
     <div class="col">
         <div class="card h-100">
             @if ($item->user_id == Auth::user()->id)
-            <img src="{{ asset('assets/profile_pic/' . $item->friend->profile_pic) }}" class="card-img-top" alt="...">
+            <img src="{{ asset($item->friend->profile_pic) }}" class="card-img-top" alt="...">
             @else
-            <img src="{{ asset('assets/profile_pic/' . $item->user->profile_pic) }}" class="card-img-top" alt="...">
+            <img src="{{ asset($item->user->profile_pic) }}" class="card-img-top" alt="...">
             @endif
             <div class="card-body d-flex flex-column justify-content-between">
                 @if ($item->user_id == Auth::user()->id)

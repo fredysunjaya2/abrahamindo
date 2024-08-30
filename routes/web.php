@@ -28,7 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/community', [UserController::class, 'community'])->name('community');
     Route::get('/message/{id}', [MessageController::class, 'index'])->name('message');
     Route::get('/topup', [UserController::class, 'topupPage'])->name('topup-page');
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 
+    Route::post('/update-profile', [UserController::class, 'updateProfile'])->name('update-profile');
     Route::post('/topup', [UserController::class, 'topup'])->name('topup');
     Route::post('/send-message', [MessageController::class, 'sendMessage'])->name('send-message');
     Route::post('/add-friend', [FriendController::class, 'addFriend'])->name('add-friend');
