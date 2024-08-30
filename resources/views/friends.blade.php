@@ -2,6 +2,8 @@
 
 @section('title', 'Friends')
 
+@section('activeFriends', 'active')
+
 @section('content')
 <div class="row row-cols-2 row-cols-xl-6 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 g-5 mt-2">
     @foreach ($friends as $item)

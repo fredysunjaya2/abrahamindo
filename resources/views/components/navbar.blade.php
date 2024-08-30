@@ -12,25 +12,22 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
+                    <a class="nav-link @yield('activeHome')" aria-current="page" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('my-game') }}">My Game</a>
+                    <a class="nav-link @yield('activeGame')" href="{{ route('my-game') }}">My Game</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('friends') }}">Friends</a>
+                    <a class="nav-link @yield('activeFriends')" href="{{ route('friends') }}">Friends</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('community') }}">Community</a>
+                    <a class="nav-link @yield('activeCommunity')" href="{{ route('community') }}">Community</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
+                    <a class="nav-link @yield('activeTopup')" href="{{ route('topup-page') }}">Top Up</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Dropdown link
-                    </a>
+                <li class="nav-item">
+                    <a class="nav-link @yield('activeProfile')" href="#">Profile</a>
                 </li>
             </ul>
         </div>
