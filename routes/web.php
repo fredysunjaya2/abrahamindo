@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/my-game', [UserGameController::class, 'index'])->name('my-game');
     Route::get('/friends', [FriendController::class, 'index'])->name('friends');
-    Route::get('/community', [FriendController::class, 'community'])->name('community');
+    Route::get('/community', [UserController::class, 'community'])->name('community');
     Route::get('/message/{id}', [MessageController::class, 'index'])->name('message');
     Route::get('/topup', [UserController::class, 'topupPage'])->name('topup-page');
 

@@ -18,6 +18,12 @@
         </form>
         <form action="{{ route('gift-game') }}" method="POST">
             @csrf
+            <label for="friend">Friend: </label>
+            <select id="friend" name="friend">
+                @foreach($friends as $item)
+                <option value="{{ $item->friend->id }}">{{ $item->friend->name }}</option>
+                @endforeach
+            </select>
             <input type="hidden" name="game_id" value="{{ $userGame->game->id }}"></input>
             <button class="btn btn-secondary" type="submit">Buy For Friends</button>
         </form>
@@ -47,15 +53,7 @@
                 @endif
             </div>
             <div class="modal-footer">
-                @csrf
-                <label for="friend">Friend: </label>
-                <select id="friend" name="friend">
-                    @foreach($friends as $item)
-                    <option value="{{ $item->friend->id }}">{{ $item->friend->name }}</option>
-                    @endforeach
-                </select>
-                <input type="hidden" name="game_id" value="{{ $game->id }}"></input>
-                <button class="btn btn-secondary" type="submit">Buy For Friends</button>
+                <a href="{{  route('game-details', $userGame->game_id) }}" class="btn btn-primary">OK</a>
             </div>
         </div>
     </div>

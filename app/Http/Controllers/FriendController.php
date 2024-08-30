@@ -10,30 +10,24 @@ use Illuminate\Support\Facades\Auth;
 class FriendController extends Controller
 {
     //
-    public function index() {
-        $friends = Friend::where(function($query){
+    public function index(Request $request) {
+        $userId = User::all()->pluck('id');
+
+        if($request->search != null) {
+            $userId = User::whereLike('name', '%' . $request->search . '%')->get()->pluck('id');
+        }
+
+        $friends = Friend::whereIn('friend_id', $userId)
+        ->where(function($query){
             $query->where('user_id', '=', Auth::user()->id)
             ->whereIn('status', ['accepted', 'pending']);
         })->orWhere(function($query) {
             $query->where('friend_id', '=', Auth::user()->id)
             ->whereIn('status', ['pending']);
-        })->paginate(24);
-
-        return view('friends', compact('friends'));
-    }
-
-    public function community() {
-        $status = ['pending', 'accepted'];
-
-        $alreadyRequest = Friend::where('user_id', '=', Auth::id())
-        ->whereIn('status', $status)
-        ->get()->pluck('friend_id');
-
-        $friends = User::whereNotIn('id', $alreadyRequest)
-        ->where('id', '!=', Auth::id())
+        })
         ->paginate(24);
 
-        return view('community', compact('friends'));
+        return view('friends', compact('friends'));
     }
 
     public function addFriend(Request $request) {

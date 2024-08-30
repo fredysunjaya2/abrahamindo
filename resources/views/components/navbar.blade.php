@@ -39,6 +39,7 @@
         @else
         <div class="ms-auto d-flex flex-row me-5 gap-3">
             <p class="fs-5 text-danger mb-0">Coin: {{ Auth::user()->coin }}</p>
+            <p class="fs-5 text-info mb-0">{{ Auth::user()->name }}</p>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="btn btn-primary">Logout</button>

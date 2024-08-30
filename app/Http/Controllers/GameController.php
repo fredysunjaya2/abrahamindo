@@ -10,8 +10,15 @@ use Illuminate\Support\Facades\Auth;
 class GameController extends Controller
 {
     //
-    public function index() {
-        $games = Game::paginate(24);
+    public function index(Request $request) {
+        $gamesId = Game::all()->pluck('id');
+
+        if($request->search != null) {
+            $gamesId = Game::whereLike('name', '%' . $request->search . '%')->get()->pluck('id');
+        }
+
+        $games = Game::whereIn('id', $gamesId)
+        ->paginate(24);
 
         return view('index', compact('games'));
     }

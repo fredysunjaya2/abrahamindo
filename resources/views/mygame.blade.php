@@ -5,6 +5,11 @@
 @section('activeGame', 'active')
 
 @section('content')
+<form class="d-flex" role="search" action="{{ route('home') }}">
+    <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+
 <div class="row row-cols-2 row-cols-xl-6 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 g-5 mt-2">
     @foreach ($userGames as $item)
     <a class="col" , href="{{ route('game-details', $item->id) }}">
